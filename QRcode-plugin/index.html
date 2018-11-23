@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>urlToQRcode</title>
+    <link rel="stylesheet" href="src/css/colpick.css">
+    <link rel="stylesheet" href="src/css/index.css">
+    <script src="lib/jquery-1.10.2.min.js"></script>
+    <script src="lib/jquery.qrcode.min.js"></script>
+    <script src="lib/ZeroClipboard.min.js"></script>
+    <script src="lib/colpick.js"></script>
+    <script src="src/js/index.js"></script>
+</head>
+<body>
+    <div class="qrcode">
+        <div id="qrcode"></div>
+    </div>
+    <div class="title">
+        <select name="title" id="title">
+            <option value="1">普通浏览器链接</option>
+            <option value="2">地图壳链接</option>
+            <option value="3">车主壳链接</option>
+            <option value="4">地图LBC浏览器</option>
+            <option value="5">手百轻框架（带回答）</option>
+            <option value="6">手百轻框架（不带回答）</option>
+        </select>
+    </div>
+    <div class="toolbar">
+        <div class="btn copy" data-action="copy" data-clipboard-text=""><span>复制URL</span></div>
+        <div class="btn toOpen" data-action="showUrl"><span>展示URL</span></div>
+        <div class="btn"><div id="picker"><span></span></div></div>
+        <div class="btn small" data-action="small"><span>-</span></div>
+        <div class="btn big" data-action="big"><span>+</span></div>
+        <div class="btn set-btn" data-action="setConfig" title="将『标题』和『二维码背景色』设为默认"><span>设为默认</span></div>
+    </div>
+    <textarea name="" id="url-box" cols="30" rows="5" disabled></textarea>
+</body>
+</html>
