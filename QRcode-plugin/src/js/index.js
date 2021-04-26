@@ -63,12 +63,14 @@ $(function(){
             } else if (val === '2') {
                 realUrl = 'baidumap://map/cost_share?url=' + baseUrl;
             } else if (val === '3') {
-                realUrl = 'baidumap://map/component?comName=carowner&target=open_web_page&popRoot=no&param=%7B%22url%22%3A%22' + baseUrl + '%22%2C%22from%22%3A%22chrome-qrcode%22%2C%22showShare%22%3A0%7D';
+                realUrl = 'baidumap://map/cost_share?url=' + baseUrl + '&hiddenTitle=1';
             } else if (val === '4') {
-                realUrl = 'baidumap://map/component?comName=lbc&target=webshell_login_page&param=%7B%22url%22%3A%22' + baseUrl + '%22%7D';
+                realUrl = 'baidumap://map/component?comName=carowner&target=open_web_page&popRoot=no&param=%7B%22url%22%3A%22' + baseUrl + '%22%2C%22from%22%3A%22chrome-qrcode%22%2C%22showShare%22%3A0%7D';
             } else if (val === '5') {
-                realUrl = 'baiduboxapp://v1/easybrowse/open?upgrade=1&type=tags&url=' + baseUrl + '&append=1&slog=%7b%22from%22%3a%22feed%22%7d&toolbaricons=%7B%22toolids%22%3A%5B%222%22%2C%223%22%5D%7D&newbrowser=1';
+                realUrl = 'baidumap://map/component?comName=lbc&target=webshell_login_page&param=%7B%22url%22%3A%22' + baseUrl + '%22%7D';
             } else if (val === '6') {
+                realUrl = 'baiduboxapp://v1/easybrowse/open?upgrade=1&type=tags&url=' + baseUrl + '&append=1&slog=%7b%22from%22%3a%22feed%22%7d&toolbaricons=%7B%22toolids%22%3A%5B%222%22%2C%223%22%5D%7D&newbrowser=1';
+            } else if (val === '7') {
                 realUrl = 'baiduboxapp://v1/easybrowse/open?upgrade=1&type=video&append=1&slog=%7b%22from%22%3a%22feed%22%7d&style=%7b%22toolbaricons%22%3a%7b%22toolids%22%3a%5b%221%22%2c%222%22%2c%223%22%5d%7d%2c+%22menumode%22%3a%222%22%7d&newbrowser=1&url=' + baseUrl;
             }
             return realUrl;
