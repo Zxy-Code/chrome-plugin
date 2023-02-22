@@ -9,10 +9,10 @@ $(function(){
         })
     });
 
-    var getEncodeUrl = function (url) {
+    var getEncodeUrl = function (url, shell = 'cost_share') {
         var urlArr = url.split('?');
         // var baseUrl = ~url.indexOf('?') ? urlArr[0] + '?' + encodeURIComponent(urlArr[1]) : url;
-        if (urlArr.length > 0) {
+        if (shell === 'carower' && urlArr.length > 0) {
             url = url.replace(/&/g, '$');
         }
         
@@ -31,7 +31,7 @@ $(function(){
         var $setBtn = $('.set-btn');
         var $picker = $('#picker');
         var $urlBox = $('#url-box');
-        var baseUrl = getEncodeUrl(url), realUrl, qrCodeColor = defaultConfig.QRcodeColor, titleId = defaultConfig.titleId, timerId;
+        var baseUrl, realUrl, qrCodeColor = defaultConfig.QRcodeColor, titleId = defaultConfig.titleId, timerId;
 
         var toQRcode = function (url, foreground) {
             $qrCode.html('');
@@ -58,6 +58,8 @@ $(function(){
 
 
         var getUrl = function (val) {
+            let shellType = val === 4 ? 'carowner' : 'cost_share';
+            baseUrl = getEncodeUrl(url, shellType)
             if (val === '1') {
                 realUrl = url;
             } else if (val === '2') {
@@ -72,6 +74,8 @@ $(function(){
                 realUrl = 'baiduboxapp://v1/easybrowse/open?upgrade=1&type=tags&url=' + baseUrl + '&append=1&slog=%7b%22from%22%3a%22feed%22%7d&toolbaricons=%7B%22toolids%22%3A%5B%222%22%2C%223%22%5D%7D&newbrowser=1';
             } else if (val === '7') {
                 realUrl = 'baiduboxapp://v1/easybrowse/open?upgrade=1&type=video&append=1&slog=%7b%22from%22%3a%22feed%22%7d&style=%7b%22toolbaricons%22%3a%7b%22toolids%22%3a%5b%221%22%2c%222%22%2c%223%22%5d%7d%2c+%22menumode%22%3a%222%22%7d&newbrowser=1&url=' + baseUrl;
+            } else if (val === '8') {
+                realUrl = 'baidumap://map/floatweb?action=open&popRoot=no&url=' + baseUrl;
             }
             return realUrl;
         };
